@@ -1,0 +1,178 @@
+//import { QMainWindow, QWidget, QLabel, QPushButton, QIcon, QBoxLayout, Direction } from '@nodegui/nodegui';
+//import * as path from "node:path";
+//import sourceMapSupport from 'source-map-support';
+
+//sourceMapSupport.install();
+import crypto from 'crypto';
+function main(): void { /*
+  const win = new QMainWindow();
+  win.setWindowTitle("Hello World");
+
+  const centralWidget = new QWidget();
+
+  const rootLayout = new QBoxLayout(Direction.TopToBottom);
+  centralWidget.setObjectName("myroot");
+  centralWidget.setLayout(rootLayout);
+
+  const label = new QLabel();
+  label.setObjectName("mylabel");
+  label.setText("Hello");
+
+  const button = new QPushButton();
+  button.setIcon(new QIcon(path.join(__dirname, '../assets/logox200.png')));
+
+  const label2 = new QLabel();
+  label2.setText("World");
+  label2.setInlineStyle(`
+    color: red;
+  `);
+
+  rootLayout.addWidget(label);
+  rootLayout.addWidget(button);
+  rootLayout.addWidget(label2);
+  win.setCentralWidget(centralWidget);
+  win.setStyleSheet(
+  `
+    #myroot {
+      background-color: #009688;
+      height: '100%';
+      align-items: 'center';
+      justify-content: 'center';
+    }
+    #mylabel {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 1;
+    }
+  `
+  );
+  win.show();
+
+  (global as any).win = win; */
+}
+
+export function printHelloWorld(): void {
+  console.log('Hello1');
+  //const crypto = require('crypto');
+  console.log('Hello2');
+  const EC = require('elliptic').ec;
+
+   // Use the elliptic curve 'secp256k1'
+   const ec = new EC('secp256k1');
+   console.log('Hello3');
+   // Function to generate a private key
+   //const generatePrivateKey = () => {
+     // Generate a random 32-byte (256-bit) private key
+     console.log('Hello4');
+     const privateKey = crypto.randomBytes(32);
+     console.log('Hello5');
+     console.log(privateKey.toString('hex'));
+  }
+
+
+// function img_to_string():void {
+//   const fs = require('fs');
+//   const path = require('path');
+
+//     // Function to convert an image file to a Base64 string
+//     const convertImageToBase64 = (filePath:string) => {
+//     // Read the image file
+//     const fileBuffer = fs.readFileSync(filePath);
+//     // Convert the file buffer to a Base64 string
+//     const base64String = fileBuffer.toString('base64');
+//     return base64String;
+//   };
+
+//   // Example usage
+//   const imagePath = path.join(__dirname, 'image.jpg'); // Replace with your image file path
+//   const base64String = convertImageToBase64(imagePath);
+//   console.log('Base64 String:', base64String);
+
+// }
+
+ function generate_keypair():any {
+   const crypto = require('crypto');
+   const EC = require('elliptic').ec;
+
+   // Use the elliptic curve 'secp256k1'
+   const ec = new EC('secp256k1');
+
+   // Function to generate a private key
+   const generatePrivateKey = () => {
+     // Generate a random 32-byte (256-bit) private key
+     const privateKey = crypto.randomBytes(32);
+     return privateKey.toString('hex');
+   };
+}
+
+//   // Example usage
+//   const privateKey = generatePrivateKey();
+//   console.log('Private Key:', privateKey);
+
+//   // Verify the private key using elliptic
+//   const keyPair = ec.keyFromPrivate(privateKey, 'hex');
+//   //console.log('Public Key:', keyPair.getPublic('hex'));
+//   return keyPair;
+// }
+
+// function generate_hash():void {
+//   const {
+//     pbkdf2Sync,
+//   } = require('node:crypto');
+  
+//   const key = pbkdf2Sync('hhhhhpassword', 'salt', 100000, 64, 'sha512');
+//   console.log('Key Hex:', key.toString('hex'));  // '3745e48...08d59ae'
+// }
+
+// function verify_hash():any {
+//   const crypto = require('crypto');
+
+//   /**
+//    * Function to verify a signed hash using a public key.
+//    * @param {string} hash - The original hash to be verified.
+//    * @param {string} signature - The signed hash (signature).
+//    * @param {string} publicKey - The public key used for verification.
+//    * @returns {boolean} - Returns true if the signature is valid, otherwise false.
+//    */
+//   const verifySignature = (hash:string, signature:string, publicKey:string) => {
+//     const verifier = crypto.createVerify('sha512');
+//     verifier.update(hash);
+//     verifier.end();
+//     const isVerified = verifier.verify(publicKey, signature, 'hex');
+//     return isVerified;
+//   };
+
+//   // Example usage
+//   const message = 'This is a message to be signed';
+//   const hash = crypto.createHash('sha512').update(message).digest('hex');
+
+//   // Generate a pair of keys (RSA)
+//   const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
+//     modulusLength: 2048,
+//   });
+
+//   // Sign the hash
+//   const signer = crypto.createSign('sha512');
+//   signer.update(hash);
+//   signer.end();
+//   const signature = signer.sign(privateKey, 'hex');
+
+//   console.log('Original Hash:', hash);
+//   console.log('Signature:', signature);
+
+//   // Verify the signature
+//   const isValid = verifySignature(hash, signature, publicKey.export({ type: 'spki', format: 'pem' }));
+//   console.log('Is the signature valid?', isValid);
+//   return isValid; 
+// }
+
+
+
+// var x = generate_hash();
+// //console.log(x);
+// var y = generate_keypair();
+// console.log('Public Key:', y.getPublic('hex'));
+// var z = verify_hash();
+// console.log('Hash Validation:', z);
+// //main(); 
+//}

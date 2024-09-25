@@ -1,13 +1,16 @@
 import { taskAdded } from '@store/ToDo/reducer';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {testsChain} from '../../services/updated_protector_utility';
 
 export const AddTask = () => {
+    //printHelloWorld();
     const dispatch = useDispatch();
 
     const [taskName, setTaskName] = useState<string>('');
 
     const handleSumbit = () => {
+        testsChain();
         if (!taskName) {
             return;
         }
@@ -48,7 +51,7 @@ export const AddTask = () => {
                     disabled={!taskName}
                     onClick={handleSumbit}
                 >
-                    Add New Task
+                    Generate Hash
                 </button>
             </div>
         </div>
